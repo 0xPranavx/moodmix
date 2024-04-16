@@ -86,9 +86,9 @@ const MultipleSelectorWithForm = () => {
     toast({
       title: 'Your submitted data',
       description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+    
          <p>playlist created</p>
-        </pre>
+        
       ),
     });
       setLoading(false);
@@ -108,7 +108,7 @@ const MultipleSelectorWithForm = () => {
   return (
     <>
    
-    { !playlist &&<Card className='w-screen m-1'>
+    { !playlist &&<Card className='m-1'>
      <CardHeader>
        <CardTitle>moodmix</CardTitle>
        <CardDescription>Turn your mood or thought in perfect playlist </CardDescription>
@@ -217,7 +217,7 @@ const MultipleSelectorWithForm = () => {
 }
 
   {playlist && 
-   <div className='m-1 flex justify-center items-center'>
+   <div className='m-1 w-screen'>
 <iframe className="rounded-xl" src={`https://open.spotify.com/embed/playlist/${playlist}?utm_source=generator&theme=0`} width="100%" height="352" frameBorder="0"  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 </div>
   
