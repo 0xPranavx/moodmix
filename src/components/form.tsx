@@ -108,24 +108,25 @@ const MultipleSelectorWithForm = () => {
   return (
     <>
    
-    { !playlist &&<Card>
+    { !playlist &&<Card className='w-screen m-1'>
      <CardHeader>
        <CardTitle>moodmix</CardTitle>
        <CardDescription>Turn your mood or thought in perfect playlist </CardDescription>
      </CardHeader>
      <CardContent>
      <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-2'>
+      <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4'>
       <FormField
           control={form.control}
           name="mood"
           render={({ field }) => (
             <FormItem>
-              <FormLabel htmlFor="bio">mood</FormLabel>
-              <FormControl>
-                <AutosizeTextarea id="bio" {...field} />
-              </FormControl>
+              <FormLabel htmlFor="mood">mood</FormLabel>
               <FormDescription>describe the mood,vibe or any thought</FormDescription>
+              <FormControl>
+                <AutosizeTextarea id="mood" {...field} />
+              </FormControl>
+             
               <FormMessage />
             </FormItem>
           )}
@@ -136,6 +137,7 @@ const MultipleSelectorWithForm = () => {
           render={({ field }) => (
             <FormItem>
               <FormLabel>genre</FormLabel>
+              <FormDescription>choose 2 genres according to your mood.</FormDescription>
               <FormControl>
                 <MultipleSelector
                   value={field.value}
@@ -149,7 +151,7 @@ const MultipleSelectorWithForm = () => {
                   }
                 />
               </FormControl>
-              <FormDescription>choose 2 genres according to your mood.</FormDescription>
+             
               <FormMessage />
             </FormItem>
           )}
@@ -160,6 +162,7 @@ const MultipleSelectorWithForm = () => {
           render={({ field }) => (
             <FormItem>
               <FormLabel>artist</FormLabel>
+              <FormDescription>choose maximum 3 artist .</FormDescription>
               <FormControl>
                 <MultipleSelector
                 onSearch={async (value) => {
@@ -179,7 +182,7 @@ const MultipleSelectorWithForm = () => {
                   }
                 />
               </FormControl>
-              <FormDescription>choose maximum 3 artist .</FormDescription>
+            
               <FormMessage />
             </FormItem>
           )}
@@ -190,8 +193,9 @@ const MultipleSelectorWithForm = () => {
           render={({ field }) => (
             <FormItem>
               <FormLabel>playlist</FormLabel>
-              <FloatingLabelInput {...field} id="name" label="name" className='h-10 ' />
               <FormDescription>add cool name to your playlist.</FormDescription>
+              <FloatingLabelInput {...field} id="name" label="name" className='h-10  ' />
+            
               <FormMessage />
             </FormItem>
           )}
