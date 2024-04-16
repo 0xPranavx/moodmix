@@ -108,7 +108,7 @@ const MultipleSelectorWithForm = () => {
   return (
     <>
    
-    { !playlist &&<Card className="">
+    { !playlist &&<Card>
      <CardHeader>
        <CardTitle>moodmix</CardTitle>
        <CardDescription>Turn your mood or thought in perfect playlist </CardDescription>
@@ -141,7 +141,7 @@ const MultipleSelectorWithForm = () => {
                   value={field.value}
                   onChange={field.onChange}
                   defaultOptions={genreOptions}
-                  placeholder="Select frameworks you like..."
+                  placeholder="genre.."
                   emptyIndicator={
                     <p className="text-center text-lg leading-10 text-gray-600 dark:text-gray-400">
                       no results found.
