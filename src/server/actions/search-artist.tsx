@@ -24,7 +24,7 @@ export default async function searchArtist(value: string):  Promise<Option[]> {
    // Ensure query is URL-encoded
 
   try {
-    const response = await fetch(`https://api.spotify.com/v1/search?q=${query}&type=artist&limit=2`, {
+    const response = await fetch(`https://api.spotify.com/v1/search?q=${query}&type=artist&limit=5`, {
       headers: {
         Authorization: `Bearer ${token}`, // Use your access token here
       },

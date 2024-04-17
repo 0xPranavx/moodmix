@@ -108,7 +108,7 @@ const MultipleSelectorWithForm = () => {
   return (
     <>
    
-    { !playlist &&<Card className='m-1'>
+    { !playlist &&<Card className='mx-8 mt-8 w-full'>
      <CardHeader>
        <CardTitle>moodmix</CardTitle>
        <CardDescription>Turn your mood or thought in perfect playlist </CardDescription>
@@ -122,7 +122,7 @@ const MultipleSelectorWithForm = () => {
           render={({ field }) => (
             <FormItem>
               <FormLabel htmlFor="mood">mood</FormLabel>
-              <FormDescription>describe the mood,vibe or any thought</FormDescription>
+              <FormDescription>describe the mood, vibe or any thought.</FormDescription>
               <FormControl>
                 <AutosizeTextarea id="mood" {...field} />
               </FormControl>
@@ -192,9 +192,9 @@ const MultipleSelectorWithForm = () => {
           name="playlistName"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>playlist</FormLabel>
+              <FormLabel>playlist name</FormLabel>
               <FormDescription>add cool name to your playlist.</FormDescription>
-              <FloatingLabelInput {...field} id="name" label="name" className='h-10  ' />
+              <FloatingLabelInput {...field} id="name"  className='h-10  ' />
             
               <FormMessage />
             </FormItem>
@@ -209,15 +209,14 @@ const MultipleSelectorWithForm = () => {
       </form>
     </Form>
       
-     </CardContent>
-     <CardFooter className="flex justify-between">
+   </CardContent>
      
-     </CardFooter>
+    
    </Card>
 }
 
   {playlist && 
-   <div className='m-1 w-screen'>
+   <div className='m-8 w-full'>
 <iframe className="rounded-xl" src={`https://open.spotify.com/embed/playlist/${playlist}?utm_source=generator&theme=0`} width="100%" height="352" frameBorder="0"  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 </div>
   
