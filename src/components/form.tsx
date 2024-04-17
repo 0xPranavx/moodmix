@@ -103,11 +103,12 @@ const MultipleSelectorWithForm = () => {
       ),
     });
       setLoading(false);
+      setplaylist(playlistId);
     
-   }, 500);
+   }, 5000);
    
       
-  setplaylist(playlistId);
+  
 
     
     // console.log(data);
