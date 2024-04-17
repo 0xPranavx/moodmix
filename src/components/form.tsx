@@ -120,7 +120,7 @@ const MultipleSelectorWithForm = () => {
   return (
     <>
    
-    { !playlist &&<Card className='mx-2 mt-10 w-full'>
+    { !playlist &&<Card className='mx-2 mt-4 w-full'>
      <CardHeader>
        <CardTitle>moodmix</CardTitle>
        <CardDescription>Turn your mood or thought in perfect playlist </CardDescription>

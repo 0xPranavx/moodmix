@@ -6,7 +6,7 @@ export default function Home() {
 
  
   return (
- <div className="flex  justify-center items-center h-screen h-full border-neutral border-t border-x border-dashed  m-2  ">
+ <div className="flex  justify-center items-center h-full border-neutral border-t border-x border-dashed  m-2  ">
    
   
    <MultipleSelectorWithForm/>
