@@ -21,14 +21,14 @@ export const Spotify = ({
   allow = "encrypted-media",
   ...props
 }: SpotifyProps) => {
-  const url = new URL(link);
+  const playlistID = link
   // https://open.spotify.com/track/1KFxcj3MZrpBGiGA8ZWriv?si=f024c3aa52294aa1
   // Remove any additional path segments
-  url.pathname = url.pathname.replace(/\/intl-\w+\//, "/");
+  // url.pathname = url.pathname.replace(/\/intl-\w+\//, "/");
   return (
     <iframe
       title="Spotify Web Player"
-      src={`https://open.spotify.com/embed${url.pathname}`}
+      src={`https://open.spotify.com/embed/playlist/${playlistID}`}
       width={width}
       height={height}
       frameBorder={frameBorder}

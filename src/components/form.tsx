@@ -106,11 +106,11 @@ const MultipleSelectorWithForm = () => {
     
    }, 500);
    
-      const spotifyurl= `https://open.spotify.com/playlist/${playlistId}` 
-  setplaylist(spotifyurl);
+      
+  setplaylist(playlistId);
 
     
-    console.log(data);
+    // console.log(data);
 
   
   
