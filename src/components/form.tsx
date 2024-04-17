@@ -34,6 +34,8 @@ import {
 } from "@/components/ui/card";
 
 import { genreOptions } from '@/data/genre';
+import {Spotify} from '@/components/spotify-embed'
+
 
 
 
@@ -104,8 +106,8 @@ const MultipleSelectorWithForm = () => {
     
    }, 500);
    
-      
-  setplaylist(playlistId);
+      const spotifyurl= `https://open.spotify.com/playlist/${playlistId}` 
+  setplaylist(spotifyurl);
 
     
     console.log(data);
@@ -231,12 +233,13 @@ const MultipleSelectorWithForm = () => {
 }
 
   {playlist && 
-   <div className='flex justify-center items-center m-8 w-full'>
-<iframe className="rounded-xl" src={`https://open.spotify.com/embed/playlist/${playlist}?utm_source=generator&theme=0`} width="100%" height="352" frameBorder="0"  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+ 
+<div className='mt-8'>
+<Spotify link={playlist}/>
+
 </div>
+
   
-   
-   
 }
    </>
     
