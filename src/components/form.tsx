@@ -48,15 +48,23 @@ const optionSchema = z.object({
 });
 
 const FormSchema = z.object({
-  artistdata: z.array(optionSchema).min(1),
+  artistdata: z.array(optionSchema).max(3,{
+    message: 'must contain at most 3 artist'
+  }).min(2,{
+    message: 'must contain at least 2 artist '
+  }),
   playlistName: z.string().min(2, {
     message: 'name must be at least 2 characters.',
     
   }),
   mood: z.string().min(10, {
-    message: 'Bio must be at least 10 characters.',
+    message: 'mood must be at least 10 characters.',
   }),
-  genre:z.array(optionSchema).min(1),
+  genre:z.array(optionSchema).max(2,{
+    message: 'must contain at most 2 genre'
+  }).min(1,{
+    message: 'must contain at least 1 genre'
+  }),
 });
 
 
@@ -80,9 +88,10 @@ const MultipleSelectorWithForm = () => {
   event?.preventDefault();
     setLoading(true);
    const  playlistId:string = await formdata(data);
-   setplaylist(playlistId);
-   const jsonString = JSON.stringify(playlistId);
+ 
+  //  const jsonString = JSON.stringify(playlistId);
       
+   setTimeout(() => {
     toast({
       title: 'Your submitted data',
       description: (
@@ -92,8 +101,11 @@ const MultipleSelectorWithForm = () => {
       ),
     });
       setLoading(false);
+    
+   }, 500);
+   
       
-  
+  setplaylist(playlistId);
 
     
     console.log(data);
@@ -108,7 +120,7 @@ const MultipleSelectorWithForm = () => {
   return (
     <>
    
-    { !playlist &&<Card className='mx-8 mt-8 w-full'>
+    { !playlist &&<Card className='mx-2 mt-10 w-full'>
      <CardHeader>
        <CardTitle>moodmix</CardTitle>
        <CardDescription>Turn your mood or thought in perfect playlist </CardDescription>
@@ -202,10 +214,13 @@ const MultipleSelectorWithForm = () => {
         />
         
          
+         
+         <LoadingButton  size="lg" loading={loading} type="submit">
+          Generate playlist       
+           </LoadingButton>
+         
              
-       <LoadingButton loading={loading} type="submit">
-          Generate
-        </LoadingButton>
+     
       </form>
     </Form>
       
@@ -216,7 +231,7 @@ const MultipleSelectorWithForm = () => {
 }
 
   {playlist && 
-   <div className='m-8 w-full'>
+   <div className='flex justify-center items-center m-10 w-full'>
 <iframe className="rounded-xl" src={`https://open.spotify.com/embed/playlist/${playlist}?utm_source=generator&theme=0`} width="100%" height="352" frameBorder="0"  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 </div>
   
