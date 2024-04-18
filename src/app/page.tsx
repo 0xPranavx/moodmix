@@ -1,4 +1,4 @@
-import MultipleSelectorWithForm from '@/components/form';
+import Hero from '@/components/home';
 
 
 
@@ -7,10 +7,10 @@ export default function Home() {
 
  
   return (
- <div className="flex  justify-center items-center h-full border-neutral border-t border-x border-dashed  m-2  ">
+ <div className="flex  justify-center items-center h-full   m-2  ">
    
   
-   <MultipleSelectorWithForm/>
+   <Hero/>
 
  
 

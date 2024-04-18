@@ -95,7 +95,7 @@ const MultipleSelectorWithForm = () => {
       
    setTimeout(() => {
     toast({
-      title: 'Your submitted data',
+     
       description: (
     
          <p>playlist created</p>
@@ -123,11 +123,8 @@ const MultipleSelectorWithForm = () => {
   return (
     <>
    
-    { !playlist &&<Card className='mx-2 mt-4 w-full'>
-     <CardHeader>
-       <CardTitle>moodmix</CardTitle>
-       <CardDescription>Turn your mood or thought in perfect playlist </CardDescription>
-     </CardHeader>
+    { !playlist &&<Card className='mx-2  w-full'>
+
      <CardContent>
      <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4'>
