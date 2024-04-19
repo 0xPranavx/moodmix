@@ -27,7 +27,7 @@ export default function Hero() {
       craft spotify ai playlists tailored for you. start your customized music journey today!
       </CardContent>
       <CardFooter className="flex justify-between">
-        <Button size='lg' className="text-lg border-dashed border-white" variant="outline"><Link href="/moodmix">login</Link></Button>
+        <Button size='lg' className="text-lg border-dashed border-white" variant="outline"><Link href="/moodmix">start</Link></Button>
        
       </CardFooter>
     </Card>

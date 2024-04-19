@@ -13,8 +13,19 @@ import Link from "next/link";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://moodmix-sepia.vercel.app'),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-US': '/en-US',
+      'de-DE': '/de-DE',
+    },
+  },
+ openGraph :{
   title: "moodmix",
-  description: "generate playlist through ai",
+  description: "Turn your Mood into the Perfect Spotify AI Playlist",
+  siteName: 'moodmix',
+ }
 };
 
 export default function RootLayout({
