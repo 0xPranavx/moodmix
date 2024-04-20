@@ -13,7 +13,7 @@ import Link from "next/link";
 // const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://moodmix-sepia.vercel.app'),
+  metadataBase: new URL('https://moodmix-ai.vercel.app'),
   alternates: {
     canonical: '/',
     languages: {
