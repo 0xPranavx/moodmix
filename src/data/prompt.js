@@ -7,4 +7,3 @@ note only output parameter and that to in json object."min_danceability max_danc
 max_popularity min_tempo max_tempo min_valence max_valence" `
 
 
-export const user = `on a rooftop and stargazing at 3am`

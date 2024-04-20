@@ -1,4 +1,4 @@
-export default async function createPlaylist(accessToken:string, userId:string, playlistName:string) {
+export default async function createPlaylist(accessToken:string, userId:string, playlistName:string ,mood:string) {
     const BASE_URL = 'https://api.spotify.com/v1';
     const response = await fetch(`${BASE_URL}/users/${userId}/playlists`, {
         method: 'POST',
@@ -8,6 +8,7 @@ export default async function createPlaylist(accessToken:string, userId:string, 
         },
         body: JSON.stringify({
             name: playlistName,
+            description: mood,
             public: true // Set to true for public playlist
         })
     });

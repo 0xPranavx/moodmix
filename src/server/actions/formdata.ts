@@ -29,9 +29,10 @@ export default async function formdata(formData:ServerForm) {
     
     // mutate data
     // revalidate cache
-    const mood = formData.mood
+     
   
-    const moodData = await moodFinder(mood);
+    const moodData = await moodFinder(formData.mood);
+    console.log(moodData);
     const ids: string[] = formData.artistdata.map(artist => artist.id as string);
 const idString: string = ids.join(', ');
 const genre: string[] = formData.genre.map(artist => artist.value as string);
@@ -40,7 +41,7 @@ const combinedObject = {   seed_artists: idString, seed_genres: genreString, ...
 const accessToken:string = await getAccessToken()
 const recommend = await getRecommendations(accessToken,combinedObject);
 const userId:string = "316ydrn5bebiejqm2b7wmohgrxsm"
-const PlaylistId:string = await createPlaylist(accessToken, userId, formData.playlistName)
+const PlaylistId:string = await createPlaylist(accessToken, userId, formData.playlistName ,formData.mood)
 const trackUris:string[] = await recommend.tracks.map((track:Track) => track.uri);
 
 await addTracksToPlaylist(accessToken,PlaylistId,trackUris)

@@ -18,7 +18,7 @@ import {
 } from '@/components/ui/form';
 import { toast } from '@/components/ui/use-toast';
 
-import MultipleSelector, { Option } from '@/components/ui/multi-selector';
+import MultipleSelector from '@/components/ui/multi-selector';
 
 import { FloatingLabelInput } from '@/components/input';
 import { AutosizeTextarea } from '@/components/text-area';
@@ -28,13 +28,12 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
+
 } from "@/components/ui/card";
 
 import { genreOptions } from '@/data/genre';
 import {Spotify} from '@/components/spotify-embed'
+
 
 
 
@@ -59,7 +58,9 @@ const FormSchema = z.object({
     message: 'name must be at least 2 characters.',
     
   }),
-  mood: z.string().min(10, {
+  mood: z.string().max(140,{
+    message: 'mood must contain at most 140 characters'
+  }).min(10, {
     message: 'mood must be at least 10 characters.',
   }),
   genre:z.array(optionSchema).max(2,{
@@ -74,6 +75,7 @@ const FormSchema = z.object({
 const MultipleSelectorWithForm = () => {
  
   const[playlist, setplaylist] = React.useState<string>()
+  
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: { 
@@ -85,6 +87,8 @@ const MultipleSelectorWithForm = () => {
   });
   const [isTriggered, setIsTriggered] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
+
+ 
 
  async  function onSubmit(data: z.infer<typeof FormSchema>) {
   event?.preventDefault();
@@ -114,7 +118,7 @@ const MultipleSelectorWithForm = () => {
     // console.log(data);
 
   
-  
+ 
     
   }
   
@@ -124,7 +128,7 @@ const MultipleSelectorWithForm = () => {
     <>
    
     { !playlist &&<Card className='mx-2  w-full'>
-
+     <CardDescription className='mx-4 mb-4 text-blue-300 text-justify'> <span className='font-semibold text-white'>note :</span> describe your mood or any thought in many words, and choose genres and artists accordingly so that a wide range of tracks will be added to playlist.</CardDescription>
      <CardContent>
      <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4'>
@@ -156,6 +160,7 @@ const MultipleSelectorWithForm = () => {
                   onChange={field.onChange}
                   defaultOptions={genreOptions}
                   placeholder="genre.."
+                  hidePlaceholderWhenSelected = {true} 
                   emptyIndicator={
                     <p className="text-center text-lg leading-10 text-gray-600 dark:text-gray-400">
                       no results found.
@@ -185,8 +190,10 @@ const MultipleSelectorWithForm = () => {
                 }}
                   value={field.value}
                   onChange={field.onChange}
+                  delay={500}
+                  hidePlaceholderWhenSelected = {true}
                   // defaultOptions={OPTIONS}
-                  placeholder="Artist.."
+                  placeholder="artist .."
                   emptyIndicator={
                     <p className="text-center text-lg leading-10 text-gray-600 dark:text-gray-400">
                       no results found.
@@ -215,7 +222,7 @@ const MultipleSelectorWithForm = () => {
         
          
          
-         <LoadingButton  size="lg" loading={loading} type="submit">
+         <LoadingButton className='border-dashed border-white' variant='outline' size="lg" loading={loading} type="submit">
           Generate playlist       
            </LoadingButton>
          
@@ -232,9 +239,11 @@ const MultipleSelectorWithForm = () => {
 
   {playlist && 
  
-<div className='mt-8'>
+<div className=''>
 <Spotify link={playlist}/>
 
+<div className='ml-2 mt-4'><p>Tap <span className='font-semibold'>save on spotify </span> 
+ to add this playlist.</p></div>
 </div>
 
   
