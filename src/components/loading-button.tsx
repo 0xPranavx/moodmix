@@ -19,7 +19,7 @@ const buttonVariants = cva(
       size: {
         default: 'h-10 px-4 py-2',
         sm: 'h-9 rounded-md px-3',
-        lg: 'h-11 rounded-md px-8',
+        lg: 'h-11 rounded-md px-8 mt-11',
         icon: 'h-10 w-10',
       },
     },
@@ -42,7 +42,7 @@ const LoadingButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const Comp = asChild ? Slot : 'button';
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={ cn(buttonVariants({ variant, size, className }))}
         disabled={loading}
         ref={ref}
         {...props}

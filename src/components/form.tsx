@@ -213,7 +213,7 @@ const MultipleSelectorWithForm = () => {
             <FormItem>
               <FormLabel>playlist name</FormLabel>
               <FormDescription>add cool name to your playlist.</FormDescription>
-              <FloatingLabelInput {...field} id="name" placeholder='lo-fi playlist🎧'  className='h-10 ' />
+              <FloatingLabelInput {...field} id="name" placeholder='lo-fi playlist🎧'  className='h-10 mb-4 ' />
             
               <FormMessage />
             </FormItem>
@@ -222,7 +222,7 @@ const MultipleSelectorWithForm = () => {
         
          
          
-         <LoadingButton className='border-dashed border-white' variant='outline' size="lg" loading={loading} type="submit">
+         <LoadingButton className='border-dashed  border-white' variant='outline' size="lg" loading={loading} type="submit">
           Generate playlist       
            </LoadingButton>
          
