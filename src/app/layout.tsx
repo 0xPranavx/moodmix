@@ -38,9 +38,11 @@ export default function RootLayout({
       
     <body className= {`${firaSans.className} flex h-screen flex-col  m-2 justify-between`}>
       <nav className="flex justify-start items-center mt-2 m-2 p-2 border-b border-dashed border-neutral ">
-       <Logo width="40px" height="40px"/>
-       <h1 className="text-xl font-bold mr-2">moodmix</h1>
-      </nav>
+       
+      <Link href="/">
+       <Logo width="40px" height="40px"/></Link>
+       <Link href="/"> <h1 className="text-xl font-bold mr-2">moodmix</h1> </Link>
+      </nav> 
       <div>{children}
       <Toaster /></div>
       <footer className="flex justify-start items-center p-4 w-full">

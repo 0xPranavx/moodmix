@@ -140,7 +140,7 @@ const MultipleSelectorWithForm = () => {
               <FormLabel htmlFor="mood">mood</FormLabel>
               <FormDescription>describe the mood, vibe or any thought.</FormDescription>
               <FormControl>
-                <AutosizeTextarea id="mood" {...field} />
+                <AutosizeTextarea id="mood" {...field} placeholder=' a quiet, rustic cabin nestled in a serene forest.' />
               </FormControl>
              
               <FormMessage />
@@ -193,7 +193,7 @@ const MultipleSelectorWithForm = () => {
                   delay={500}
                   hidePlaceholderWhenSelected = {true}
                   // defaultOptions={OPTIONS}
-                  placeholder="artist .."
+                  placeholder="artist.."
                   emptyIndicator={
                     <p className="text-center text-lg leading-10 text-gray-600 dark:text-gray-400">
                       no results found.
@@ -213,7 +213,7 @@ const MultipleSelectorWithForm = () => {
             <FormItem>
               <FormLabel>playlist name</FormLabel>
               <FormDescription>add cool name to your playlist.</FormDescription>
-              <FloatingLabelInput {...field} id="name"  className='h-10  ' />
+              <FloatingLabelInput {...field} id="name" placeholder='lo-fi playlist🎧'  className='h-10 ' />
             
               <FormMessage />
             </FormItem>
